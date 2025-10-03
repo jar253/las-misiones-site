@@ -203,7 +203,8 @@
           (function(){
             try{
               // reemplaza la ruta mostrada en la barra por una más limpia
-              history.replaceState(null, '', '/las-misiones');
+              // Use trailing slash so server treats this as a directory and 404 redirects work better
+              history.replaceState(null, '', '/las-misiones/');
             }catch(e){
               console.warn('history.replaceState falló:', e);
             }

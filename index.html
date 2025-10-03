@@ -203,8 +203,8 @@
           (function(){
             try{
               // reemplaza la ruta mostrada en la barra por una más limpia
-              // Use trailing slash so server treats this as a directory and 404 redirects work better
-              history.replaceState(null, '', '/las-misiones/');
+              // Show the actual GitHub Pages path so reloads don't go to a missing URL
+              history.replaceState(null, '', '/las-misiones-site/');
             }catch(e){
               console.warn('history.replaceState falló:', e);
             }

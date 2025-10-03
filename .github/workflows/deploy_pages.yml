@@ -17,6 +17,21 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Show git status and recent commits (diagnostic)
+        run: |
+          echo "--- git status ---"
+          git --version || true
+          git status --porcelain || true
+          echo "--- recent commits ---"
+          git --no-pager log -n 5 --oneline || true
+
+      - name: List repository files (diagnostic)
+        run: |
+          echo "--- ls -la root ---"
+          ls -la . || true
+          echo "--- find top-level (depth 2) ---"
+          find . -maxdepth 2 -type f | sed -n '1,200p' || true
+
       - name: Configure Pages
         uses: actions/configure-pages@v3
 

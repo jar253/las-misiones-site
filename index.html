@@ -200,15 +200,11 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
         <script src="js/script.js"></script>
         <script>
-          (function(){
-            try{
-              // reemplaza la ruta mostrada en la barra por una más limpia
-              // Show the actual GitHub Pages path so reloads don't go to a missing URL
-              history.replaceState(null, '', '/las-misiones-site/');
-            }catch(e){
-              console.warn('history.replaceState falló:', e);
-            }
-          })();
+          // history.replaceState removed:
+          // Changing the visible path causes the browser to request that path on reload
+          // (GitHub Pages serves static files and will 404 before our JS runs). To
+          // show a clean path without the repository slug, configure a custom domain
+          // (CNAME) instead.
         </script>
       </body>
     </html>

@@ -67,6 +67,45 @@ body{font-family:'Nunito',system-ui,Arial,Helvetica,sans-serif;background:linear
 .hero p{color:var(--muted);max-width:720px}
 .hero-actions{display:flex;gap:.8rem;margin-top:1rem}
 
+/* --- Custom gallery and hero background improvements --- */
+.hero.simple-hero{
+  background-image: url('../images/portada.jpg');
+  background-size: cover;
+  background-position: center;
+  color: #0f1724;
+}
+.hero.simple-hero .hero-inner{
+  background: rgba(255,255,255,0.86);
+  border-radius: 12px;
+  padding: 2.4rem 1.2rem;
+  box-shadow: 0 18px 48px rgba(12,34,18,0.06);
+}
+
+.gallery{
+  padding: 2.6rem 0;
+}
+.gallery-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  align-items: stretch;
+}
+.gallery-grid figure{margin:0;overflow:hidden;border-radius:12px;box-shadow:0 10px 30px rgba(15,23,36,0.06);background:#fff}
+.gallery-grid img{width:100%;height:220px;object-fit:cover;display:block;transition:transform .35s ease}
+.gallery-grid img:hover{transform:scale(1.03)}
+
+/* make gallery images taller on wide screens */
+@media (min-width:1000px){
+  .gallery-grid img{height:260px}
+}
+
+/* small screens: stack nicely */
+@media (max-width:600px){
+  .gallery-grid img{height:160px}
+  .hero-inner{padding:1.2rem}
+  .hero h2{font-size:1.5rem}
+}
+
 /* About */
 .about{padding:3rem 0}
 .about-grid{display:grid;grid-template-columns:1fr 420px;gap:1.4rem;align-items:center}
